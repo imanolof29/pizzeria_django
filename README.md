@@ -22,3 +22,9 @@
   <li>views, clases(ViewSet) que nos permitiran ver los registros (JSON) y editarlos </li>
   <li>urls: rutas para ver los registros</li>
 </ul>
+
+<h4>web</h4>
+<ul>
+  <li>settings.py: settings de todo el proyecto</li>
+  <li>urls de todo el proyecto (pizzeria, usuarios, api)</li>
+</ul>
