@@ -1,0 +1,22 @@
+{% extends 'pizzeria/base.html' %}
+{% block content %}
+
+<p>Contactanos</p>
+
+
+<div class="formulario">
+    <form method="POST" action="{% url 'pizzeria:deja_comentario' %}">
+        <!--
+        <label>Correo:</label>
+        <input type="text" name="correo" id="correo" required/>
+        <label>Comentario</label>
+        <textarea rows=5 cols=10 name="comentario" required></textarea>
+        <input type="submit" value="Enviar"/>
+        -->
+
+
+
+    </form>
+</div>
+
+{% endblock content%}

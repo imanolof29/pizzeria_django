@@ -1,0 +1,18 @@
+{% extends 'pizzeria/base.html' %}
+{% block content %}
+
+
+
+<div class="formulario">
+    <form method="POST" action="{% url 'usuarios:registrarse' %}">
+        <!--Elemento de django que nos proporciona seguridad ante ataques-->
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Registrarse"/>
+        <input type="hidden" name="next" value="{% url 'pizzeria:index' %}"/>
+    </form>
+</div>
+
+
+
+{% endblock content%}

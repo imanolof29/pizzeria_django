@@ -1,0 +1,37 @@
+{% extends 'pizzeria/base.html' %}
+{% block content %}
+
+<p>Seccion de comentarios</p>
+
+{% for comentario in comentarios %}
+
+<div class="comentario">
+    <p class="c_usuario">{{comentario.usuario}}</p>
+    <p class="texto">{{comentario.comentario}}</p>
+    <p class="fecha">{{comentario.fecha_publicacion}}</p>
+    {%if comentario.usuario == request.user %}
+        <form method="POST" action="{% url 'pizzeria:editar_comentario' comentario.id %}">
+            {% csrf_token %}
+            <input type="submit" value="Editar comentario"/>
+        </form>
+        <form method="POST" action="{% url 'pizzeria:borrar_comentario' comentario.id %}">
+            {% csrf_token %}
+            <input type="submit" value="Borrar"/>
+        </form>  
+    {% endif %}
+</div>
+
+{% empty %}
+    <p>No hay comentarios</p>
+{% endfor %}
+
+
+<div class="formulario">
+    <form method="POST" action="{% url 'pizzeria:dejar_comentario' %}">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Enviar"/>
+    </form>
+</div>
+
+{% endblock content%}

@@ -1,0 +1,17 @@
+{% extends 'pizzeria/base.html' %}
+{% block content %}
+
+
+<div class="perfil">
+    <div class="perfil_contenidos">
+        <p>Hola {{user.last_name}}  {{user.first_name}}</p>
+        <p>Usuario {{user.username}}</p>
+        <p>Fecha de union {{user.date_joined}}</p>
+        <p><a href="{% url 'usuarios:logout' %}">Logout</a></p>
+    </div>
+</div>
+
+
+
+
+{% endblock content%}

@@ -1,0 +1,25 @@
+{% extends 'pizzeria/base.html' %}
+{% block content %}
+
+<div class="mas_vendidas">
+    <h2>Pizzas mas vendidas</h2>
+    {% for pizza in pizzas %}
+        <div class="carta_pizza">
+            <div class="titulo">
+                <p>{{pizza}}</p>
+            </div>
+            <!--Cargamos la url static-->
+            {% load static %}
+            <div class="imagen">
+                <img src="{% static 'pizzeria/pizza.jpg' %}" alt="pizza">
+            </div>
+            <form action="{% url 'pizzeria:mostrar_info_pizza' pizza.id %}">
+                <button onclick="mostrar()">Mas info</button>
+            </form>
+        </div>
+    {% empty %}
+        <p>No hay pizzas</p>
+    {% endfor %}
+</div>
+
+{% endblock content%}

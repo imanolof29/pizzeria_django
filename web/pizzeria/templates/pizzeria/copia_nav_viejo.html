@@ -1,0 +1,15 @@
+<nav class="navegador">
+    <ul id="elementos">
+        <li class="boton_responsive"><button onclick="mostrarOcultar()">Responsive</button></li>
+        <li><a href="{% url 'pizzeria:index' %}">Inicio</a></li>
+        <li><a href="{% url 'pizzeria:nuestras_pizzas' %}">Nuestras pizzas</a></li>
+        <li><a href="{% url 'pizzeria:contacto' %}">Contacto</a></li>
+        <li><a href="{% url 'pizzeria:dejar_comentario' %}">Deja comentario</a></li>
+        {% if user.is_authenticated %}
+            <li><a class="usuario" href="{% url 'usuarios:perfil' %}">{{ user.username }}</a></li>
+        {% else %}
+            <li><a class="usuario" href="{% url 'usuarios:login' %}">Login</a></li>
+        {% endif %}
+        <li><a class="carrito" href="#">Carrito</a></li>
+    </ul>
+</nav>

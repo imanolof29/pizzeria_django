@@ -1,0 +1,21 @@
+{% extends 'pizzeria/base.html' %}
+{% block content %}
+
+
+{% if form.errors %}
+    <p>Usuarios y contraseñas incorrectas. Vuelva a intentarlo</p>
+{% endif %}
+
+<div class="formulario">
+    <form method="POST" action="{% url 'usuarios:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login"/>
+        <a href="{% url 'usuarios:registrarse' %}">Registrate</a>
+        <input type="hidden" name="next" value="{% url 'pizzeria:index' %}" /> 
+    </form>
+</div>
+
+
+
+{% endblock content%}
